@@ -32,6 +32,34 @@ header h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/*nav*/
+#menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 10px;
+}
+
+#menu button, #menu select, .datosTaller a button {
+    font-family: Calibri;
+    font-size: 14px;
+        border-radius: 12px;
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#menu button, #menu select {
+    background-color: #ffffff;
+    color: #00008b;
+    border: 3px solid #00008b;
+}
+
 /* Main container */
 main {
     max-width: 1200px;
@@ -97,16 +125,11 @@ main {
 
 /* Botones centrados */
 .datosTaller a button {
-    font-family: Calibri;
-    background: #c0c0c0;
-    color: #ffffff;    border: 5px solid #ffffff;
-    border-radius: 12px;
-    padding: 12px 30px;
+    background-color: #c0c0c0;
+    color: #ffffff;
+        border: 5px solid #ffffff;
     margin: 0 auto;
     display: block;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 150px;
 }
 
 .datosTaller a {
@@ -145,6 +168,12 @@ footer h6 {
         font-size: 2.5rem;
     }
     
+    button, select {
+        font-size: 16px;
+        min-width: 150px;
+        padding: 12px 20px;
+    }
+
     main {
         padding: 2rem;
     }
@@ -203,6 +232,17 @@ footer h6 {
         font-size: 3rem;
     }
     
+    nav {
+        justify-content: flex-start; /* Alinea los elementos al inicio */
+        gap: 20px;
+    }
+
+    button, select {
+        font-size: 18px;
+        min-width: 180px;
+        padding: 15px 30px;
+    }
+
     main {
         padding: 3rem;
     }
@@ -289,6 +329,18 @@ a:focus {
     <header>
         <h1>Bmenflo Web</h1>
     </header>
+    <nav id="menu">
+        <button id="btnHT">Herramientas Tecnológicas</button>
+        <button id="btnIA">Inteligencia Artidicial</button>
+        <select id="sltWeb">
+            <option value="TW">Talleres Web</option>
+            <option value="DW">Desarrollo Web</option>
+            <option value="PW">Programación Web</option>
+            <option value="BD">Base de Datos</option>
+        </select>
+        <button id="btnAPT">Asesoría Proyecto Tesis</button>
+        <button id="btnAW">Accesibilidad Web</button>
+    </nav>
     <main>
         <section id="sectIntroduccion">
             <article>
@@ -308,7 +360,7 @@ a:focus {
                 ✔ Base de datos con <b>60% de descuento</b>!</p>
             </article>
         </section>
-        <section class="tipoTaller">
+        <section id="sectHT" class="tipoTaller">
             <h2>💻 Herramientas Tecnológicas:</h2>
             <article class="datosTaller">
                 <h3>Introducción Herramientas Tecnológicas:</h3>
@@ -326,7 +378,7 @@ a:focus {
                 <a href="https://wa.link/c2g7nl"><button>Iniciar ya!</button></a>
             </article>
         </section>
-        <section class="tipoTaller">
+        <section id="sectIA" class="tipoTaller">
             <h2>🤖 Inteligencia Artificial (IA):</h2>
             <article class="datosTaller">
                 <h3>Introducción IA:</h3>
@@ -339,7 +391,7 @@ a:focus {
                 <a href="https://wa.link/drve7g"><button>Iniciar ya!</button></a>
             </article>
         </section>
-        <section class="tipoTaller">
+        <section id="sectDW" class="tipoTaller">
             <h2>⌨️ Desarrollo Web desde cero:</h2>
             <article class="datosTaller">
                 <h3>Introducción Desarrollo Web</h3>
@@ -362,7 +414,7 @@ a:focus {
                 <a href="https://wa.link/9y59yp"><button>Iniciar ya!</button></a>
             </article>
         </section>
-        <section class="tipoTaller">
+        <section id="sectPW" class="tipoTaller">
             <h2>⌨️ Programación desde cero:</h2>
             <article class="datosTaller">
                 <h3>Introducción Programación Web:</h3>
@@ -390,7 +442,7 @@ a:focus {
                 <a href="https://wa.link/nqnay9"><button>Iniciar ya!</button></a>
             </article>
         </section>
-        <section class="tipoTaller">
+        <section id="sectBD" class="tipoTaller">
             <h2>💻 Base de Datos desde cero:</h2>
             <article class="datosTaller">
                 <h3>Introducción Base de Datos:</h3>
@@ -408,6 +460,22 @@ a:focus {
                 <a href="https://wa.link/4z097r"><button>Iniciar ya!</button></a>
             </article>
         </section>
+        <section id="sectAPT" class="tipoTaller">
+            <h2>📚 Asesoría de Proyecto de Tesis:</h2>
+            <article class="datosTaller">
+                <p>¿Te sientes abrumado por tu proyecto de tesis? Nosotros te guiamos en cada paso del camino, desde la elección del tema hasta la presentación final.<br>
+                    Con nuestra asesoría personalizada, transformarás tu idea en un proyecto sólido y exitoso. Olvídate del estrés, enfócate en tus objetivos y gradúate con honores. ¡Tu éxito es nuestra prioridad!</p>
+                <a href="https://wa.link/916vun"><button>Iniciar ya!</button></a>
+            </article>
+        </section>
+        <section id="sectAW" class="tipoTaller">
+            <h2>🌐 Accesibilidad Web:</h2>
+            <article class="datosTaller">
+                <p>¿Sabías que una web accesible no solo es ética, sino también más rentable? Obtén tu aplicación web inclusivo que lleguen a una audiencia más amplia, incluyendo a personas con discapacidad.<br>
+                    Dominará las normativas y herramientas para diseñar experiencias de usuario universales, mejorando el SEO y cumpliendo con estándares internacionales. ¡Haz que tu web sea para todos y destaca en el mercado!</p>
+                <a href="https://wa.link/blycg2"><button>Iniciar ya!</button></a>
+            </article>
+        </section>
     </main>
     <footer>
         <article>
@@ -418,6 +486,85 @@ a:focus {
             <h6>&copy; 2021-2025 Bmenflo Web</h6>
             </article>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //Ocultando los talleres
+            $("#sectIA").hide();
+            $("#sectDW").hide();
+                        $("#sectPW").hide();
+            $("#sectBD").hide();
+            $("#sectAPT").hide();
+            $("#sectAW").hide();
+
+            //Motrando Talleres HT
+            $("#btnHT").click(function(){
+            $("#sectHT").show();
+            $("#sectIA").hide();
+            $("#sectDW").hide();
+                        $("#sectPW").hide();
+            $("#sectBD").hide();
+            $("#sectAPT").hide();
+            $("#sectAW").hide();
+            });
+
+            //Motrando Talleres IAs
+            $("#btnIA").click(function(){
+            $("#sectHT").hide();
+            $("#sectIA").show();
+            $("#sectDW").hide();
+                        $("#sectPW").hide();
+            $("#sectBD").hide();
+            $("#sectAPT").hide();
+            $("#sectAW").hide();
+            });
+
+            //Motrando Talleres DW, PW y BD 
+            $("#sltWeb").change(function(){
+                let tallerWeb = $(this).val();
+
+            $("#sectHT").hide();
+            $("#sectIA").hide();
+            $("#sectAPT").hide();
+            $("#sectAW").hide();
+
+            if (tallerWeb === "DW") {
+                $("#sectDW").show();
+                $("#sectPW").hide();
+                $("#sectBD").hide();
+            } else if (tallerWeb === "PW") {
+                $("#sectDW").hide();
+                $("#sectPW").show();
+                $("#sectBD").hide();
+            } else if (tallerWeb === "BD") {
+                $("#sectDW").hide();
+                $("#sectPW").hide();
+                $("#sectBD").show();
+            }
+            });
+
+            //Motrando PT
+            $("#btnAPT").click(function(){
+            $("#sectHT").hide();
+            $("#sectIA").hide();
+            $("#sectDW").hide();
+                        $("#sectPW").hide();
+            $("#sectBD").hide();
+            $("#sectAPT").show();
+            $("#sectAW").hide();
+            });
+
+            //Motrando AW
+            $("#btnAW").click(function(){
+            $("#sectHT").hide();
+            $("#sectIA").hide();
+            $("#sectDW").hide();
+                        $("#sectPW").hide();
+            $("#sectBD").hide();
+            $("#sectAPT").hide();
+            $("#sectAW").show();
+            });
+        });
+    </script>
 </body>
 </html>
-
