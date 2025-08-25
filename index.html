@@ -364,7 +364,7 @@ a:focus {
 
         function enviarMensaje(nomTaller) {
             let numeroCelular = '51992891965';
-            let mensaje = '¡Hola Bmenflo Web! Quisiera tener información del Taller ${nomTaller}. ☺';
+            let mensaje = '¡Hola Bmenflo Web! Quisiera tener información del Taller ' + nomTaller + '. ☺';
             let mensajeCodificado = encodeURIComponent(mensaje);
             let urlWhatsApp = `https://wa.me/${numeroCelular}?text=${mensajeCodificado}`;
             window.open(urlWhatsApp, '_blank');
