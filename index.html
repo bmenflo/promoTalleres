@@ -42,7 +42,7 @@ header h1 {
     padding: 20px 10px;
 }
 
-#menu button, #menu select, .datosTaller a button {
+#menu button, #menu select, .datosTaller button {
     font-family: Calibri;
     font-size: 14px;
         border-radius: 12px;
@@ -79,6 +79,10 @@ main {
     text-align: justify;
 }
 
+#verMas {
+    display:none; 
+
+}
 /* MOBILE FIRST - Diseño para celulares */
 .tipoTaller {
     border-radius: 12px;
@@ -124,7 +128,7 @@ main {
 }
 
 /* Botones centrados */
-.datosTaller a button {
+.datosTaller button {
     background-color: #c0c0c0;
     color: #ffffff;
         border: 5px solid #ffffff;
@@ -324,6 +328,48 @@ a:focus {
     outline-offset: 2px;
 }
     </style>
+    <script>
+            let tiposTalleres = [{id: "HT", nombreTaller: "💻 Herramientas Tecnológicas"},
+            {id: "IA", nombreTaller: "🤖 Inteligencia Artificial (IA)"},
+            {id: "DW", nombreTaller: "⌨️ Desarrollo Web desde cero"},
+            {id: "PW", nombreTaller: "⌨️ Programación desde cero"},
+            {id: "BD", nombreTaller: "💻 Base de Datos desde cero"},
+            {id: "APT", nombreTaller: "📚 Asesoría de Proyecto de Tesis"},
+            {id: "AW", nombreTaller: "🌐 Accesibilidad Web"}];
+
+        let datosTalleres = [{id: "HT", titulo: "Introducción Herramientas Tecnológicas", descripcion: "Descubre las herramientas digitales esenciales que todo profesional necesita dominar en el mundo actual. Aprende a optimizar tu productividad y eficiencia laboral con las tecnologías más demandadas del mercado."}, {id: "HT", titulo: "Microsoft Excel Intermedio", descripcion: "Domina funciones avanzadas, tablas dinámicas y análisis de datos. Convierte información compleja en reportes profesionales que impresionen en tu trabajo y potencien tu carrera profesional."}, {id: "HT", titulo: "Macro Excel Básico", descripcion: "Automatiza tareas repetitivas y crea soluciones personalizadas con programación VBA. Ahorra horas de trabajo manual y conviértete en el experto en automatización de tu empresa."},
+        {id: "IA", titulo: "Introducción IA", descripcion: "Descubre el futuro de la tecnología y cómo la IA está transformando todas las industrias. Aprende conceptos fundamentales, herramientas prácticas y cómo implementar soluciones de IA para automatizar procesos y potenciar tu productividad profesional."}, {id: "IA", titulo: "IA Multi-Archivos", descripcion: "Crea, edita y transforma imágenes profesionales, genera voces sintéticas, transcribe audios automáticamente y produce videos de alta calidad. Domina herramientas para generar contenido visual impactante con la IA."},
+        {id: "DW", titulo: "Introducción Desarrollo Web", descripcion: "Construye tu primera página web profesional desde cero. Aprende los fundamentos del desarrollo web moderno y da el primer paso hacia una carrera en tecnología con alta demanda laboral."}, {id: "DW", titulo: "JavaScript Básico", descripcion: "Dale vida e interactividad a tus páginas web. Domina el lenguaje de programación más popular del mundo y abre las puertas a infinitas posibilidades en el desarrollo web y aplicaciones."}, {id: "DW", titulo: "React Básico", descripcion: "Crea aplicaciones web modernas y dinámicas con la librería más utilizada por empresas como Facebook, Netflix y Airbnb. Accede a oportunidades laborales con salarios superiores al promedio."}, {id: "DW", titulo: "Angular 16 Básico", descripcion: "Desarrolla aplicaciones empresariales robustas y escalables con el framework de Google. Posiciónate como desarrollador senior en proyectos de gran envergadura y alta complejidad técnica."},
+        {id: "PW", titulo: "Introducción Programación Web", descripcion: "Inicia tu camino en la programación web sin conocimientos previos. Aprende la lógica de programación y conceptos fundamentales que te prepararán para cualquier lenguaje o tecnología."}, {id: "PW", titulo: "NodeJS Básico", descripcion: "Programa del lado del servidor con JavaScript y crea aplicaciones web completas. Unifica tu conocimiento en un solo lenguaje y multiplica tus oportunidades como desarrollador full-stack."}, {id: "PW", titulo: "C# Básico", descripcion: "Domina uno de los lenguajes más potentes y versátiles de Microsoft. Desde aplicaciones de escritorio hasta servicios web empresariales, C# te abre puertas en el ecosistema tecnológico corporativo."}, {id: "PW", titulo: "PHP Básico", descripcion: "Aprende el lenguaje que impulsa el 80% de los sitios web del mundo, incluyendo WordPress y Facebook. Desarrolla aplicaciones web dinámicas y sistemas de gestión con gran demanda laboral."}, {id: "PW", titulo: "Python Básico", descripcion: "Incursiona en el lenguaje más popular para ciencia de datos, inteligencia artificial y automatización. Python es tu puerta de entrada a las tecnologías del futuro con el mayor crecimiento profesional."},
+        {id: "BD", titulo: "Introducción Base de Datos", descripcion: "Comprende cómo se almacena y organiza la información en el mundo digital. Aprende los conceptos fundamentales que todo profesional tecnológico debe manejar para gestionar datos eficientemente."}, {id: "BD", titulo: "SQL Server Básico", descripcion: "Maneja bases de datos empresariales con el sistema de Microsoft. Consulta, actualiza y administra información crítica de negocios con una de las herramientas más utilizadas en el sector corporativo."}, {id: "BD", titulo: "MySQL Básico", descripcion: "Domina la base de datos open source más popular del mundo. Gestiona información de aplicaciones web y sistemas empresariales con la tecnología que prefieren startups y grandes corporaciones."},
+        {id: "APT", titulo: "Personaliza en poco tiempo", descripcion: "¿Te sientes abrumado por tu proyecto de tesis? Nosotros te guiamos en cada paso del camino, desde la elección del tema hasta la presentación final.<br>Con nuestra asesoría personalizada, transformarás tu idea en un proyecto sólido y exitoso. Olvídate del estrés, enfócate en tus objetivos y gradúate con honores. ¡Tu éxito es nuestra prioridad!"},
+        {id: "AW", titulo: "Desarrollo Web Accesible", descripcion: "¿Sabías que una web accesible no solo es ética, sino también más rentable? Obtén tu aplicación web inclusivo que lleguen a una audiencia más amplia, incluyendo a personas con discapacidad.<br>Dominará las normativas y herramientas para diseñar experiencias de usuario universales, mejorando el SEO y cumpliendo con estándares internacionales. ¡Haz que tu web sea para todos y destaca en el mercado!"}];
+
+        function talleresBMF() {
+            for (let tipoTaller = 0; tipoTaller < tiposTalleres.length; tipoTaller++) {
+        document.write("<section id='sect" + tiposTalleres[tipoTaller].id + "' class='tipoTaller'>");
+                document.write("<h2>" + tiposTalleres[tipoTaller].nombreTaller + ":</h2>");
+                for (let taller = 0; taller < datosTalleres.length; taller++) {
+                    if (tiposTalleres[tipoTaller].id == datosTalleres[taller].id) {
+                    document.write("<article class='datosTaller'>");
+                    document.write("<h3>" + datosTalleres[taller].titulo + ":</h3>");
+                    document.write("<p>" + datosTalleres[taller].descripcion + "</p>");
+                    document.write("<button onClick='enviarMensaje(\"" + datosTalleres[taller].titulo + "\")'>Inicia ya!</button>");
+                    document.write("</article>");
+                    }
+                }
+                document.write("</section>");
+            }
+        }
+
+        function enviarMensaje(nomTaller) {
+            let numeroCelular = '51992891965';
+            let mensaje = '¡Hola Bmenflo Web! Quisiera tener información del Taller ${nomTaller}. ☺';
+            let mensajeCodificado = encodeURIComponent(mensaje);
+            let urlWhatsApp = `https://wa.me/${numeroCelular}?text=${mensajeCodificado}`;
+            window.open(urlWhatsApp, '_blank');
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -344,137 +390,24 @@ a:focus {
     <main>
         <section id="sectIntroduccion">
             <article>
-                <p><b>Transforma tu futuro tecnológico con expertos para personas con o sin discapacidad.</b><br>
-                ¿Deseas dominar las tecnologías que están revolucionando el mundo? Aquí convertimos esa visión en realidad.<br>
+                <p><b>Transforma tu futuro tecnológico con expertos para personas con o sin discapacidad.</b> <a ID="verMas" href="#">Mostrar más información...</a></p>
+                <p class="mostrarTexto">¿Deseas dominar las tecnologías que están revolucionando el mundo? Aquí convertimos esa visión en realidad.<br>
                 Contamos con Ingenieros de Sistemas con más de 10 años de experiencia creando aplicaciones web empresariales desde cero. Esta combinación única de experiencia práctica y formación académica avanzada nos permite ofrecerte una educación tecnológica de primer nivel.</p>
 
-                <p>Te acompañamos en tu crecimiento profesional: 🚀<br>
+                <p class="mostrarTexto">Te acompañamos en tu crecimiento profesional: 🚀<br>
                 ✔ Talleres al 100% accesibles en Herramientas Tecnológicas, Inteligencia Artificial y Programación Web.<br>
                 ✔ Desarrollo de aplicaciones web empresariales a medida para tu negocio.<br>
                 ✔ Asesoría completa para tu proyecto de tesis de pregrado.</p>
 
-                <p>🔈 Promociones 2025:<br>
+                <p class="mostrarTexto">🔈 Promociones 2025:<br>
                 ✔ Herramientas Tecnológicas e Inteligencia Artificial con <b>50% de descuento</b>!<br>
                 ✔  Desarrollo y Programación Web con <b>55% de descuento</b>!<br>
                 ✔ Base de datos con <b>60% de descuento</b>!</p>
             </article>
         </section>
-        <section id="sectHT" class="tipoTaller">
-            <h2>💻 Herramientas Tecnológicas:</h2>
-            <article class="datosTaller">
-                <h3>Introducción Herramientas Tecnológicas:</h3>
-                <p>Descubre las herramientas digitales esenciales que todo profesional necesita dominar en el mundo actual. Aprende a optimizar tu productividad y eficiencia laboral con las tecnologías más demandadas del mercado.</p>
-                <a href="https://wa.link/crweqn"><button>Iniciar ya!</button></a>
-            </article>
-            <article class="datosTaller">
-                <h3>Microsoft Excel Intermedio:</h3>
-                <p>Domina funciones avanzadas, tablas dinámicas y análisis de datos. Convierte información compleja en reportes profesionales que impresionen en tu trabajo y potencien tu carrera profesional.</p>
-                <a href="https://wa.link/tjntju"><button>Iniciar ya!</button></a>
-            </article>
-            <article class="datosTaller">
-                <h3>Macro Excel Básico:</h3>
-                <p>Automatiza tareas repetitivas y crea soluciones personalizadas con programación VBA. Ahorra horas de trabajo manual y conviértete en el experto en automatización de tu empresa.</p>
-                <a href="https://wa.link/c2g7nl"><button>Iniciar ya!</button></a>
-            </article>
-        </section>
-        <section id="sectIA" class="tipoTaller">
-            <h2>🤖 Inteligencia Artificial (IA):</h2>
-            <article class="datosTaller">
-                <h3>Introducción IA:</h3>
-                <p>Descubre el futuro de la tecnología y cómo la IA está transformando todas las industrias. Aprende conceptos fundamentales, herramientas prácticas y cómo implementar soluciones de IA para automatizar procesos y potenciar tu productividad profesional.</p>
-                <a href="https://wa.link/6deyua"><button>Iniciar ya!</button></a>
-            </article>
-            <article class="datosTaller">
-                <h3>IA Multi-Archivos:</h3>
-                <p>Crea, edita y transforma imágenes profesionales, genera voces sintéticas, transcribe audios automáticamente y produce videos de alta calidad. Domina herramientas para generar contenido visual impactante con la IA.</p>
-                <a href="https://wa.link/drve7g"><button>Iniciar ya!</button></a>
-            </article>
-        </section>
-        <section id="sectDW" class="tipoTaller">
-            <h2>⌨️ Desarrollo Web desde cero:</h2>
-            <article class="datosTaller">
-                <h3>Introducción Desarrollo Web</h3>
-                <p>Construye tu primera página web profesional desde cero. Aprende los fundamentos del desarrollo web moderno y da el primer paso hacia una carrera en tecnología con alta demanda laboral.</p>
-                <a href="https://wa.link/ombp82"><button>Iniciar ya!</button></a>
-            </article>
-            <article class="datosTaller">
-                <h3>JavaScript Básico:</h3>
-                <p>Dale vida e interactividad a tus páginas web. Domina el lenguaje de programación más popular del mundo y abre las puertas a infinitas posibilidades en el desarrollo web y aplicaciones.</p>
-                <a href="https://wa.link/r24bn9"><button>Iniciar ya!</button></a>
-            </article>
-            <article class="datosTaller">
-                <h3>React Básico:</h3>
-                <p>Crea aplicaciones web modernas y dinámicas con la librería más utilizada por empresas como Facebook, Netflix y Airbnb. Accede a oportunidades laborales con salarios superiores al promedio.</p>
-                <a href="https://wa.link/vqxkn7"><button>Iniciar ya!</button></a>
-            </article>
-            <article class="datosTaller">
-                <h3>Angular 16 Básico:</h3>
-                <p>Desarrolla aplicaciones empresariales robustas y escalables con el framework de Google. Posiciónate como desarrollador senior en proyectos de gran envergadura y alta complejidad técnica.</p>
-                <a href="https://wa.link/9y59yp"><button>Iniciar ya!</button></a>
-            </article>
-        </section>
-        <section id="sectPW" class="tipoTaller">
-            <h2>⌨️ Programación desde cero:</h2>
-            <article class="datosTaller">
-                <h3>Introducción Programación Web:</h3>
-                <p>Inicia tu camino en la programación web sin conocimientos previos. Aprende la lógica de programación y conceptos fundamentales que te prepararán para cualquier lenguaje o tecnología.</p>
-                <a href="https://wa.link/kkshlx"><button>Iniciar ya!</button></a>
-            </article>
-            <article class="datosTaller">
-                <h3>NodeJS Básico:</h3>
-                <p>Programa del lado del servidor con JavaScript y crea aplicaciones web completas. Unifica tu conocimiento en un solo lenguaje y multiplica tus oportunidades como desarrollador full-stack.</p>
-                <a href="https://wa.link/lqbpba"><button>Iniciar ya!</button></a>
-            </article>
-            <article class="datosTaller">
-                <h3>C# Básico:</h3>
-                <p>Domina uno de los lenguajes más potentes y versátiles de Microsoft. Desde aplicaciones de escritorio hasta servicios web empresariales, C# te abre puertas en el ecosistema tecnológico corporativo.</p>
-                <a href="https://wa.link/rmdje2"><button>Iniciar ya!</button></a>
-            </article>
-            <article class="datosTaller">
-                <h3>PHP Básico:</h3>
-                <p>Aprende el lenguaje que impulsa el 80% de los sitios web del mundo, incluyendo WordPress y Facebook. Desarrolla aplicaciones web dinámicas y sistemas de gestión con gran demanda laboral.</p>
-                <a href="https://wa.link/ww8cwc"><button>Iniciar ya!</button></a>
-            </article>
-            <article class="datosTaller">
-                <h3>Python Básico:</h3>
-                <p>Incursiona en el lenguaje más popular para ciencia de datos, inteligencia artificial y automatización. Python es tu puerta de entrada a las tecnologías del futuro con el mayor crecimiento profesional.</p>
-                <a href="https://wa.link/nqnay9"><button>Iniciar ya!</button></a>
-            </article>
-        </section>
-        <section id="sectBD" class="tipoTaller">
-            <h2>💻 Base de Datos desde cero:</h2>
-            <article class="datosTaller">
-                <h3>Introducción Base de Datos:</h3>
-                <p>Comprende cómo se almacena y organiza la información en el mundo digital. Aprende los conceptos fundamentales que todo profesional tecnológico debe manejar para gestionar datos eficientemente.</p>
-                <a href="https://wa.link/08pecq"><button>Iniciar ya!</button></a>
-            </article>
-            <article class="datosTaller">
-                <h3>SQL Server Básico:</h3>
-                <p>Maneja bases de datos empresariales con el sistema de Microsoft. Consulta, actualiza y administra información crítica de negocios con una de las herramientas más utilizadas en el sector corporativo.</p>
-                <a href="https://wa.link/z5defp"><button>Iniciar ya!</button></a>
-            </article>
-            <article class="datosTaller">
-                <h3>MySQL Básico:</h3>
-                <p>Domina la base de datos open source más popular del mundo. Gestiona información de aplicaciones web y sistemas empresariales con la tecnología que prefieren startups y grandes corporaciones.</p>
-                <a href="https://wa.link/4z097r"><button>Iniciar ya!</button></a>
-            </article>
-        </section>
-        <section id="sectAPT" class="tipoTaller">
-            <h2>📚 Asesoría de Proyecto de Tesis:</h2>
-            <article class="datosTaller">
-                <p>¿Te sientes abrumado por tu proyecto de tesis? Nosotros te guiamos en cada paso del camino, desde la elección del tema hasta la presentación final.<br>
-                    Con nuestra asesoría personalizada, transformarás tu idea en un proyecto sólido y exitoso. Olvídate del estrés, enfócate en tus objetivos y gradúate con honores. ¡Tu éxito es nuestra prioridad!</p>
-                <a href="https://wa.link/916vun"><button>Iniciar ya!</button></a>
-            </article>
-        </section>
-        <section id="sectAW" class="tipoTaller">
-            <h2>🌐 Accesibilidad Web:</h2>
-            <article class="datosTaller">
-                <p>¿Sabías que una web accesible no solo es ética, sino también más rentable? Obtén tu aplicación web inclusivo que lleguen a una audiencia más amplia, incluyendo a personas con discapacidad.<br>
-                    Dominará las normativas y herramientas para diseñar experiencias de usuario universales, mejorando el SEO y cumpliendo con estándares internacionales. ¡Haz que tu web sea para todos y destaca en el mercado!</p>
-                <a href="https://wa.link/blycg2"><button>Iniciar ya!</button></a>
-            </article>
-        </section>
+        <script>
+            talleresBMF();
+        </script>
     </main>
     <footer>
         <article>
@@ -498,6 +431,8 @@ a:focus {
 
             //Motrando Talleres HT
             $("#btnHT").click(function(){
+                $("#verMas").show();
+                $(".mostrarTexto").hide();
             $("#sectHT").show();
             $("#sectIA").hide();
             $("#sectDW").hide();
@@ -509,6 +444,8 @@ a:focus {
 
             //Motrando Talleres IAs
             $("#btnIA").click(function(){
+                $("#verMas").show();
+                $(".mostrarTexto").hide();
             $("#sectHT").hide();
             $("#sectIA").show();
             $("#sectDW").hide();
@@ -522,6 +459,8 @@ a:focus {
             $("#sltWeb").change(function(){
                 let tallerWeb = $(this).val();
 
+                $("#verMas").show();
+                $(".mostrarTexto").hide();
             $("#sectHT").hide();
             $("#sectIA").hide();
             $("#sectAPT").hide();
@@ -542,8 +481,10 @@ a:focus {
             }
             });
 
-            //Motrando PT
+            //Motrando APT
             $("#btnAPT").click(function(){
+                $("#verMas").show();
+                $(".mostrarTexto").hide();
             $("#sectHT").hide();
             $("#sectIA").hide();
             $("#sectDW").hide();
@@ -555,6 +496,8 @@ a:focus {
 
             //Motrando AW
             $("#btnAW").click(function(){
+                $("#verMas").show();
+                $(".mostrarTexto").hide();
             $("#sectHT").hide();
             $("#sectIA").hide();
             $("#sectDW").hide();
@@ -563,10 +506,13 @@ a:focus {
             $("#sectAPT").hide();
             $("#sectAW").show();
             });
+
+            $("#verMas").click(function() {
+                $("#verMas").hide();
+    $(".mostrarTexto").show();
+            });
         });
+
     </script>
 </body>
 </html>
-
-
-
